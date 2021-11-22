@@ -197,11 +197,6 @@ public class DangNhapJDialog extends javax.swing.JDialog {
 
     private void lblDangKyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDangKyMouseClicked
         // TODO add your handling code here:
-        if (evt.getClickCount() == 1) {
-            this.dispose();
-            DangKyJDialog dk = new DangKyJDialog(null,true);
-            dk.setVisible(true);
-        }
     }//GEN-LAST:event_lblDangKyMouseClicked
 
     private void lblInvisibleMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInvisibleMousePressed
