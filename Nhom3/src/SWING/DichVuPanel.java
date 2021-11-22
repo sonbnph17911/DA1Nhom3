@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author DuongNVPH
+ * @author Theubt
  */
 public class DichVuPanel extends javax.swing.JPanel {
 
