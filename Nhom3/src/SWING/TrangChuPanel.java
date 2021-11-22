@@ -7,7 +7,7 @@ package SWING;
 
 /**
  *
- * @author DuongNVPH
+ * @author Bùi Ngọc Sơn
  */
 public class TrangChuPanel extends javax.swing.JPanel {
 
