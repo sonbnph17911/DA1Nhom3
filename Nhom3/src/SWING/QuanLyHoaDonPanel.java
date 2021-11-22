@@ -15,6 +15,7 @@ import MODEL.ChiTietHoaDon;
 import MODEL.DichVu;
 import MODEL.HoaDon;
 import java.awt.Color;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -92,6 +93,7 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
         rdoDaThanhToan = new javax.swing.JRadioButton();
         rdoChuaThanhToan = new javax.swing.JRadioButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblDanhSachHoaDon.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -244,7 +246,6 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel7.setText("Danh Sách Dịch Vụ");
 
-        tblDanhSachDichVu.setBorder(javax.swing.BorderFactory.createTitledBorder("Danh Sách Dịch Vụ"));
         tblDanhSachDichVu.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         tblDanhSachDichVu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -303,16 +304,9 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
                 "Mã dịch vụ", "Tên dịch vụ", "Giá tiền"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, true, false
+                false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -562,14 +556,13 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
 
     private void btn5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn5MouseClicked
         // TODO add your handling code here:
-        
+
         String tongTien = txtTongTien.getText();
         float tongtien = Float.parseFloat(tongTien);
         float thanhtien = tongtien * 5/100 ;
         float tiengiam = tongtien - thanhtien ;
-        txtThanhTien2.setText(String.format("%.0f", tiengiam));
-        txtTienGiam.setText(String.format("%.0f", thanhtien));
-        
+        txtThanhTien2.setText(String.format("%.0f",tiengiam));
+        txtTienGiam.setText(String.format("%.0f",thanhtien));
     }//GEN-LAST:event_btn5MouseClicked
     
     private void btn10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn10MouseClicked
@@ -578,8 +571,8 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
         float tongtien = Float.parseFloat(tongTien);
         float thanhtien = tongtien * 10/100 ;
         float tiengiam = tongtien - thanhtien ;
-        txtThanhTien2.setText(String.format("%.0f", tiengiam));
-        txtTienGiam.setText(String.format("%.0f", thanhtien));
+        txtThanhTien2.setText(String.format("%.0f",tiengiam));
+        txtTienGiam.setText(String.format("%.0f",thanhtien));
     }//GEN-LAST:event_btn10MouseClicked
 
     private void btn15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn15MouseClicked
@@ -588,8 +581,8 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
         float tongtien = Float.parseFloat(tongTien);
         float thanhtien = tongtien * 15/100 ;
         float tiengiam = tongtien - thanhtien ;
-        txtThanhTien2.setText(String.format("%.0f", tiengiam));
-        txtTienGiam.setText(String.format("%.0f", thanhtien));
+        txtThanhTien2.setText(String.format("%.0f",tiengiam));
+        txtTienGiam.setText(String.format("%.0f",thanhtien));
     }//GEN-LAST:event_btn15MouseClicked
 
     private void btn20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn20MouseClicked
@@ -598,10 +591,12 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
         float tongtien = Float.parseFloat(tongTien);
         float thanhtien = tongtien * 20/100 ;
         float tiengiam = tongtien - thanhtien ;
-        txtThanhTien2.setText(String.format("%.0f", tiengiam));
-        txtTienGiam.setText(String.format("%.0f", thanhtien));
+        txtThanhTien2.setText(String.format("%.0f",tiengiam));
+        txtTienGiam.setText(String.format("%.0f",thanhtien));
     }//GEN-LAST:event_btn20MouseClicked
 
+    
+    
     private void tblDanhSachDichVuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhSachDichVuMouseClicked
         // TODO add your handling code here:
         int viTri = tblDanhSachDichVu.getSelectedRow();
@@ -619,6 +614,9 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
 
     private void txtTienKhachDuaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTienKhachDuaKeyReleased
         // TODO add your handling code here:
+        tienKhachDua();
+    }//GEN-LAST:event_txtTienKhachDuaKeyReleased
+    void tienKhachDua(){
         String tienKhachDua = txtTienKhachDua.getText();
         String thanhTien = txtThanhTien2.getText();
         float tienkhachdua = Float.parseFloat(tienKhachDua);
@@ -631,12 +629,11 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
             txtTienThoiLai.setText("");
         }
         if(tienkhachthieu >0 ){
-            txtTienKhachThieu.setText(tienkhachthieu+"");
+            txtTienThoiLai.setText(tienkhachthieu+"");
         }else{
             txtTienKhachThieu.setText("");
         }
-    }//GEN-LAST:event_txtTienKhachDuaKeyReleased
-
+    }
     private void btnThanhToanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThanhToanActionPerformed
         // TODO add your handling code here:
 //        capNhatHoaDon();
@@ -708,7 +705,7 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
         dtm.setRowCount(0);
         ArrayList<DichVu> list = dvdao.selectAll();
         for (DichVu dichVu : list) {
-            Object[] data = {dichVu.getMaDichVu(),dichVu.getTenDichVu(),String.format("%.0f", dichVu.getGiaTien())};
+            Object[] data = {dichVu.getMaDichVu(),dichVu.getTenDichVu(),String.format("%.0f",dichVu.getGiaTien())};
             dtm.addRow(data);
         }
     }
@@ -786,15 +783,15 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
         if (txtMaHoaDon.getText().equals("")) {
             return null;
         }
-        if (txtTongTien.getText().equals(ABORT)) {
+        if (txtTongTien.getText().equals("")) {
             return null;
         }
         if (txtMaDichVu.getText().equals("")) {
             return null;
         }
-        ct.setGiamGia(Integer.parseInt(txtTongTien.getText()));
-        ct.setTongTien(Integer.parseInt( txtTongTien.getText()));
-        ct.setThanhTien(Integer.parseInt( txtThanhTien2.getText()));
+        ct.setGiamGia(Float.parseFloat(txtTongTien.getText()));
+        ct.setTongTien(Float.parseFloat( txtTongTien.getText()));
+        ct.setThanhTien(Float.parseFloat( txtThanhTien2.getText()));
         ct.setMaHoaDon(txtMaHoaDon.getText());
         ct.setMaDichVu(txtMaDichVu.getText());
         return ct ;

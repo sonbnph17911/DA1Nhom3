@@ -262,7 +262,7 @@ public class MainFrame extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_mnuTroGiup_mniGioiThieuSanPhamActionPerformed
 
     private void mnuDoiMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuDoiMatKhauActionPerformed
-        new QuenMatKhauJDialog(this,true).setVisible(true);
+
     }//GEN-LAST:event_mnuDoiMatKhauActionPerformed
 
     private void mnuKetThucChuongTrinhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuKetThucChuongTrinhActionPerformed
@@ -425,17 +425,17 @@ public class MainFrame extends javax.swing.JFrame implements Runnable{
         car.show(pnlMain, "QuanLyHoaDon");
     }
     void openLichHen(){
-        QuanLyLichDatPanel lichDat = new QuanLyLichDatPanel();
-        pnlMain.add(lichDat,"LichDat");
-        CardLayout car = (CardLayout) pnlMain.getLayout();
-        car.show(pnlMain, "LichDat");
+//        QuanLyLichDatPanel lichDat = new QuanLyLichDatPanel();
+//        pnlMain.add(lichDat,"LichDat");
+//        CardLayout car = (CardLayout) pnlMain.getLayout();
+//        car.show(pnlMain, "LichDat");
     }
     
     void openQuanLyKhachHang(){
-        QuanLyKhachHangPanel khachHang = new QuanLyKhachHangPanel();
-        pnlMain.add(khachHang,"KhachHang");
-        CardLayout car = (CardLayout) pnlMain.getLayout();
-        car.show(pnlMain, "KhachHang");
+//        QuanLyKhachHangPanel khachHang = new QuanLyKhachHangPanel();
+//        pnlMain.add(khachHang,"KhachHang");
+//        CardLayout car = (CardLayout) pnlMain.getLayout();
+//        car.show(pnlMain, "KhachHang");
     }
     void openQuanLyNhanVien(){
         QuanLyNhanVienPanel nhanVien = new QuanLyNhanVienPanel();
