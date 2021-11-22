@@ -67,14 +67,8 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
         tblDanhSachDichVu = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        txtMaHoaDon2 = new javax.swing.JTextField();
-        txtGiamGia = new javax.swing.JTextField();
-        txtThanhTien = new javax.swing.JTextField();
-        txtDichVu = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblChiTietHoaDon = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         btn5 = new javax.swing.JButton();
         btn10 = new javax.swing.JButton();
@@ -181,7 +175,7 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
             tblDanhSachHoaDon.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 1040, 330));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 900, 330));
 
         jPanel1.setLayout(new java.awt.GridLayout(0, 1));
 
@@ -220,7 +214,7 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
                 txtTimKiemKeyReleased(evt);
             }
         });
-        add(txtTimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 380, 40));
+        add(txtTimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 530, 40));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel2.setText("Mã hóa đơn :");
@@ -250,6 +244,7 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel7.setText("Danh Sách Dịch Vụ");
 
+        tblDanhSachDichVu.setBorder(javax.swing.BorderFactory.createTitledBorder("Danh Sách Dịch Vụ"));
         tblDanhSachDichVu.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         tblDanhSachDichVu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -342,10 +337,8 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(120, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,11 +346,10 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))
         );
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 150, 300, 170));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 142, 330, 190));
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -365,27 +357,69 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
         jLabel10.setText("Chi Tiết Hóa Đơn");
         jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 11, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel8.setText("Mã hóa đơn:");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        tblChiTietHoaDon.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "TT", "Mã HD", "Mã DV", "Giảm giá", "Tổng tiền", "Thành tiền"
+            }
+        ));
+        jScrollPane3.setViewportView(tblChiTietHoaDon);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel9.setText("Giảm giá:");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 440, 210));
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel11.setText("Thành tiền:");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 143, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel12.setText("Dịch vụ :");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 193, -1, -1));
-        jPanel4.add(txtMaHoaDon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 42, 210, 30));
-        jPanel4.add(txtGiamGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 210, 30));
-        jPanel4.add(txtThanhTien, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 210, 30));
-        jPanel4.add(txtDichVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 210, 30));
-
-        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 330, 300, 250));
+        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 330, 440, 250));
 
         jPanel2.setLayout(new java.awt.GridLayout(2, 2));
 
@@ -624,8 +658,6 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
     private com.toedter.calendar.JDateChooser dcNgayThanhToan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -639,26 +671,22 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JRadioButton rdoChuaThanhToan;
     private javax.swing.JRadioButton rdoDaThanhToan;
+    private javax.swing.JTable tblChiTietHoaDon;
     private javax.swing.JTable tblDanhSachDichVu;
     private javax.swing.JTable tblDanhSachHoaDon;
-    private javax.swing.JTextField txtDichVu;
-    private javax.swing.JTextField txtGiamGia;
     private javax.swing.JTextField txtMaDichVu;
     private javax.swing.JTextField txtMaHoaDon;
-    private javax.swing.JTextField txtMaHoaDon2;
     private javax.swing.JTextField txtMaKhachHang;
     private javax.swing.JTextField txtNguoiTao;
-    private javax.swing.JTextField txtThanhTien;
     private javax.swing.JTextField txtThanhTien2;
     private javax.swing.JTextField txtTienGiam;
     private javax.swing.JTextField txtTienKhachDua;
@@ -780,7 +808,7 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
         txtNguoiTao.setText(hd.getMaNhanVien());
     }
     void setFormChiTietHoaDon(ChiTietHoaDon ct){
-        txtGiamGia.setText(ct.getGiamGia()+"");
+        txtTienGiam.setText(ct.getGiamGia()+"");
         txtTongTien.setText(ct.getTongTien()+"");
         txtTienKhachDua.setText("");
         txtThanhTien2.setText(ct.getThanhTien()+"");
@@ -801,16 +829,19 @@ public class QuanLyHoaDonPanel extends javax.swing.JPanel {
     
     ChiTietHoaDonDAO cthddao = new ChiTietHoaDonDAO();
     void xemChiTietHoaDon(){
-        int viTri = tblDanhSachHoaDon.getSelectedRow();
-        if (viTri ==-1) {
-            return ;
-        }
-        ArrayList<ChiTietHoaDon> list = cthddao.xemChiTietHoaDon(tblDanhSachHoaDon.getValueAt(viTri, 0).toString());
-        for (ChiTietHoaDon ct : list) {
-            txtMaHoaDon2.setText(ct.getMaHoaDon());
-            txtThanhTien.setText(ct.getThanhTien()+"");
-            txtGiamGia.setText(ct.getGiamGia()+"");
-            txtDichVu.setText(ct.getMaDichVu());
+        DefaultTableModel dtm = (DefaultTableModel) tblChiTietHoaDon.getModel();
+        dtm.setRowCount(0);
+        int viTri =tblDanhSachHoaDon.getSelectedRow();
+        String mahd = tblDanhSachHoaDon.getValueAt(viTri, 0).toString();
+        ArrayList<ChiTietHoaDon> list = cthddao.xemChiTietHoaDon(mahd);
+        for (ChiTietHoaDon cthd : list) {
+            Object[] rowData = {cthd.getMaChiTietHoaDon(),
+                cthd.getMaHoaDon(),
+                cthd.getMaDichVu(),
+                cthd.getGiamGia(),
+                cthd.getTongTien(),
+                cthd.getThanhTien()};
+            dtm.addRow(rowData);
         }
     }
     
