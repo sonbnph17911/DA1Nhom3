@@ -35,6 +35,9 @@ public class ManHinhChaoJDialog extends javax.swing.JDialog implements Runnable{
         jLabel1 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -42,11 +45,29 @@ public class ManHinhChaoJDialog extends javax.swing.JDialog implements Runnable{
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICON/man-woman-having-her-hair-260nw-447585163.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, 249));
-        jPanel1.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 354, 710, 20));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, 249));
+        jPanel1.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 354, 840, 20));
 
         jLabel2.setText("                                                         ");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 280, 20));
+
+        jLabel3.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel3.setFont(new java.awt.Font("Wide Latin", 0, 72)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(62, 64, 92));
+        jLabel3.setText("Hair");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 310, 100));
+
+        jLabel4.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel4.setFont(new java.awt.Font("Wide Latin", 0, 72)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(62, 64, 92));
+        jLabel4.setText("Salon");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, -1, -1));
+
+        jLabel5.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel5.setFont(new java.awt.Font("Wide Latin", 0, 34)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(62, 64, 92));
+        jLabel5.setText("&&");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,7 +109,6 @@ public class ManHinhChaoJDialog extends javax.swing.JDialog implements Runnable{
             java.util.logging.Logger.getLogger(ManHinhChaoJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -108,6 +128,9 @@ public class ManHinhChaoJDialog extends javax.swing.JDialog implements Runnable{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables

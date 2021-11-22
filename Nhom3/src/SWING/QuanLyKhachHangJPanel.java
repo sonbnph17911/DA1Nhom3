@@ -69,7 +69,7 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel3.setText("Mã Người Học");
+        jLabel3.setText("Mã Khách hàng");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 11, -1, -1));
         jPanel1.add(txtMaKh, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 32, 290, 30));
 
@@ -106,7 +106,7 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel14.setText("Email");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 300, 30));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 300, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel2.setText("Giới Tính");
@@ -236,16 +236,14 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        if (validateForm(true)) {
             insert();
-        }
+        
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        if (validateForm(false)) {
             update();
-        }
+        
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
@@ -323,8 +321,11 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
     }
 
     void insert() {
-        KhachHang khachHang = getForm();
-
+        if (checkKey() == 0) {
+            KhachHang khachHang = getForm();
+        if (khachHang == null) {
+            return ;
+        }
         try {
             dao.insert(khachHang);
             this.fillTable();
@@ -333,11 +334,18 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
         } catch (Exception e) {
             DialogHelper.alert(this, "Thêm mới thất bại!" + e);
         }
+        }else{
+            DialogHelper.alert(this, "Trùng mã khách hàng");
+            return;
+        }
 
     }
 
     void update() {
         KhachHang khachHang = getForm();
+        if (khachHang == null) {
+            return ;
+        }
         try {
             dao.update(khachHang);
             this.fillTable();
@@ -392,9 +400,10 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
                     khachHang.getMaKhachHang(),
                     khachHang.getHoTen(),
                     khachHang.getGioiTinh() ? "Nam" : "Nữ",
+                    khachHang.getDiaChi(),
                     khachHang.getSoDienThoai(),
-                    khachHang.getEmail(),
-                    khachHang.getGhiChu()};
+                    khachHang.getEmail()
+                };
                 model.addRow(row); //them 1 hang vao table
             }
         } catch (Exception e) {
@@ -415,6 +424,40 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
 
     KhachHang getForm() {
         KhachHang khachHang = new KhachHang();
+        if (txtMaKh.getText().length() == 0) {
+            DialogHelper.alert(this, "Không được phép để trống mã KH!");
+            txtMaKh.requestFocus();
+            return null;
+        } else if (txtMaKh.getText().length() > 7) {
+            DialogHelper.alert(this, "Mã KH không được quá 7 ký tự!");
+            txtMaKh.requestFocus();
+            return null;
+        } else if (txtHoTen.getText().length() == 0) {
+            DialogHelper.alert(this, "Không được phép để trống họ tên!");
+            txtHoTen.requestFocus();
+            return null;
+        } else if (txtDiachi.getText().length() == 0) {
+            DialogHelper.alert(this, "Không được phép để trống địa chỉ!");
+            txtDiachi.requestFocus();
+            return null;
+        } else if (txtDienThoai.getText().length() == 0) {
+            DialogHelper.alert(this, "Không được để trống số điện thoại!");
+            txtDienThoai.requestFocus();
+            return null;
+        } else if (!txtDienThoai.getText().matches("((84)|(0))\\d{9}")) {
+            DialogHelper.alert(this, "Không đúng định dạng số điện thoại!");
+            txtDienThoai.requestFocus();
+            return null;
+        } else if (txtEmail.getText().length() == 0) {
+            DialogHelper.alert(this, "Bạn chưa nhập Email!");
+            txtEmail.requestFocus();
+            return null;
+        } else if (!txtEmail.getText().matches("\\w+@\\w+(\\.\\w+){1,2}")) {
+            DialogHelper.alert(this, "Email không đúng định dạng!");
+            txtEmail.requestFocus();
+            return null;
+        }
+        
         khachHang.setMaKhachHang(txtMaKh.getText());
         khachHang.setHoTen(txtHoTen.getText());
         khachHang.setGioiTinh(rdoNam.isSelected());
@@ -438,56 +481,17 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
     }
     
     
-    
-    
-    
-    
-    public boolean validateForm(boolean chk) {
-        if (txtMaKh.getText().length() == 0) {
-            DialogHelper.alert(this, "Không được phép để trống mã KH!");
-            txtMaKh.requestFocus();
-            return false;
-        } else if (txtMaKh.getText().length() > 7) {
-            DialogHelper.alert(this, "Mã KH không được quá 7 ký tự!");
-            txtMaKh.requestFocus();
-            return false;
-        } else if (txtHoTen.getText().length() == 0) {
-            DialogHelper.alert(this, "Không được phép để trống họ tên!");
-            txtHoTen.requestFocus();
-            return false;
-        } else if (txtDiachi.getText().length() == 0) {
-            DialogHelper.alert(this, "Không được phép để trống địa chỉ!");
-            txtDiachi.requestFocus();
-            return false;
-        } else if (txtDienThoai.getText().length() == 0) {
-            DialogHelper.alert(this, "Không được để trống số điện thoại!");
-            txtDienThoai.requestFocus();
-            return false;
-        } else if (!txtDienThoai.getText().matches("((84)|(0))\\d{9}")) {
-            DialogHelper.alert(this, "Không đúng định dạng số điện thoại!");
-            txtDienThoai.requestFocus();
-            return false;
-        } else if (txtEmail.getText().length() == 0) {
-            DialogHelper.alert(this, "Bạn chưa nhập Email!");
-            txtEmail.requestFocus();
-            return false;
-        } else if (!txtEmail.getText().matches("\\w+@\\w+(\\.\\w+){1,2}")) {
-            DialogHelper.alert(this, "Email không đúng định dạng!");
-            txtEmail.requestFocus();
-            return false;
-        }
-        ArrayList<KhachHang> list = dao.selectAll();
-        if (chk) {
-            for (KhachHang cd : list) {
-                if (txtMaKh.getText().equals(cd.getMaKhachHang())) {
-                    DialogHelper.alert(this, "Mã Kh đã tồn tại");
-                    txtMaKh.requestFocus();
-                    return false;
-                }
+
+    private int checkKey(){
+        int kt = 1;
+        ArrayList<KhachHang> list = dao.selectAll();    
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getMaKhachHang().equals(txtMaKh.getText().trim())) {
+                kt = 0 ;
+                break ;
             }
         }
-
-        return true;
+        return kt ;
     }
 
 
