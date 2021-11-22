@@ -13,7 +13,7 @@ import MODEL.NhanVien;
 
 /**
  *
- * @author DuongNVPH
+ * @author Bùi Ngọc Sơn
  */
 public class DangNhapJDialog extends javax.swing.JDialog {
 
